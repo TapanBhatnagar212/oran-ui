@@ -1,5 +1,5 @@
 import React from 'react';
-import xappLogo from './assets/intelligence.png'
+import xappLogo from './assets/xG-logo.png'
 import ricLogo from './assets/xAppControl.png'
 import statsLogo from './assets/latency.png'
 import './App.css';
