@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
+import oranLogo from './assets/oran-logo.png'
 import './App.css';
+import Home from "./Home";
+import {BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
+import Xapp from "./Xapp";
+import Platform from "./Platform";
+import Ric from "./Ric";
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const goHome = () => {
+        window.location.href = "/";
+    };
+
+    return (
+        <Router>
+            <div className="App">
+                <header className="header" onClick={() => goHome()}>
+                    <div><img src={oranLogo} className="Oran-logo"/></div>
+                    <div><p>RIC Dashboard</p></div>
+                </header>
+            <Routes>
+                <Route exact path='/' exact element={<Home/>}/>
+                <Route path='/xapp' element={<Xapp/>}/>
+                <Route path='/ric' element={<Ric/>}/>
+                <Route path='/platform' element={<Platform/>}/>
+            </Routes>
+            </div>
+        </Router>);
 }
 
 export default App;
