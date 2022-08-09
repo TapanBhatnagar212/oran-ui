@@ -15,7 +15,7 @@ function Ric() {
     return (
         <div className="catalog__section">
             {data2 && <Enodeb data={data2}/>}
-            {data2 && <SliceData data={slice_data}/>}
+            {slice_data && <SliceData data={slice_data}/>}
         </div>
     );
 }
