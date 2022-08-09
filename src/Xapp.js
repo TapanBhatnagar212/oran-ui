@@ -1,15 +1,15 @@
 import './App.css';
 import Get from "./axiosClient/axiosGet";
-import fetchUrl from "./axiosClient/axiosUrl";
+import fetchUrl, {KONG_PROXY} from "./axiosClient/axiosUrl";
 
 
 function Xapp() {
     const data = Get(
-        fetchUrl("/onboard/api/v1/charts"),
+        fetchUrl("/onboard/api/v1/charts", KONG_PROXY),
     );
 
     const data2 = Get(
-        fetchUrl("/appmgr/ric/v1/xapps"),
+        fetchUrl("/appmgr/ric/v1/xapps", KONG_PROXY),
     );
 
     return (
