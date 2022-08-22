@@ -26,7 +26,7 @@ function App() {
                 <Route exact path='/' exact element={<Home/>}/>
                 <Route path='/xapp' element={<Xapp/>}/>
                 <Route path='/ric' element={<Ric/>}/>
-                <Route path='/platform' element={<Platform/>}/>
+                {/*<Route path='/platform' element={<Platform/>}/>*/}
             </Routes>
             </div>
         </Router>);
