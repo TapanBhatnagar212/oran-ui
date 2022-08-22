@@ -67,11 +67,11 @@ const SliceData = (data) => {
     return (
         <div className="flex blackText">
             <div className="card-container-ric">
-                <h3 className="rd-global-page-title">Slice 1</h3>
-                <div className="cell-container">
-                    <div className="title-cell-ric">Name:</div>
-                    <div>{res[0].name}</div>
-                </div>
+                <h3 className="rd-global-page-title">{res[0].name}</h3>
+                {/*<div className="cell-container">*/}
+                {/*    <div className="title-cell-ric">Name:</div>*/}
+                {/*    <div>{res[0].name}</div>*/}
+                {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">Allocation Proportion share:</div>
                     <div>{JSON.stringify(res[0].allocation_policy.share)}</div>
@@ -82,11 +82,11 @@ const SliceData = (data) => {
                 </div>
             </div>
             <div className="card-container-ric">
-                <h3 className="rd-global-page-title">Slice 2</h3>
-                <div className="cell-container">
-                    <div className="title-cell-ric">Name:</div>
-                    <div>{res[1].name}</div>
-                </div>
+                <h3 className="rd-global-page-title">{res[1].name}</h3>
+                {/*<div className="cell-container">*/}
+                {/*    <div className="title-cell-ric">Name:</div>*/}
+                {/*    <div>{res[1].name}</div>*/}
+                {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">Allocation Proportion share:</div>
                     <div>{JSON.stringify(res[1].allocation_policy.share)}</div>
