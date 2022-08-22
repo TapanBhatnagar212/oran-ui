@@ -89,7 +89,7 @@ const SliceData = (data) => {
                 {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">Allocation Proportion share:</div>
-                    <div>{JSON.stringify(res[1].allocation_policy.share)}</div>
+                    <div>{res[1].allocation_policy.share}</div>
                 </div>
                 <div className="cell-container">
                     <div className="title-cell-ric">Ues:</div>
@@ -106,7 +106,7 @@ const UeData = (data) => {
     return (
         <div className="flex blackText">
             {res[0] && <div className="card-container-ric">
-                <h3 className="rd-global-page-title">UE 1</h3>
+                <h3 className="rd-global-page-title">UE 1 - First Responder</h3>
                 {/*<div className="cell-container">*/}
                 {/*    <div className="title-cell-ric">Crnti:</div>*/}
                 {/*    <div>{res[0].crnti}</div>*/}
