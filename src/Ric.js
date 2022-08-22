@@ -12,10 +12,14 @@ function Ric() {
     const slice_data = Get(
         fetchUrl("/v1/slices", NEXRAN_BASE_URL),
     );
+    const ue_data = Get(
+        fetchUrl("/v1/ues", NEXRAN_BASE_URL),
+    );
     return (
         <div className="catalog__section">
             {data2 && <Enodeb data={data2}/>}
             {slice_data && <SliceData data={slice_data}/>}
+            {ue_data && <UeData data={ue_data}/>}
         </div>
     );
 }
@@ -92,6 +96,45 @@ const SliceData = (data) => {
                     <div>{JSON.stringify(res[1].ues)}</div>
                 </div>
             </div>
+        </div>
+    )
+}
+
+const UeData = (data) => {
+    const res = data.data.ues
+    console.log(res)
+    return (
+        <div className="flex blackText">
+            {res[0] && <div className="card-container-ric">
+                <h3 className="rd-global-page-title">UE 1</h3>
+                <div className="cell-container">
+                    <div className="title-cell-ric">Crnti:</div>
+                    <div>{res[0].crnti}</div>
+                </div>
+                <div className="cell-container">
+                    <div className="title-cell-ric">IMSI:</div>
+                    <div>{res[0].imsi}</div>
+                </div>
+                <div className="cell-container">
+                    <div className="title-cell-ric">TMSI:</div>
+                    <div>{res[0].tmsi}</div>
+                </div>
+            </div>}
+            {res[1] && <div className="card-container-ric">
+                <h3 className="rd-global-page-title">UE 2</h3>
+                <div className="cell-container">
+                    <div className="title-cell-ric">Crnti:</div>
+                    <div>{res[1].crnti}</div>
+                </div>
+                <div className="cell-container">
+                    <div className="title-cell-ric">IMSI:</div>
+                    <div>{JSON.stringify(res[1].imsi)}</div>
+                </div>
+                <div className="cell-container">
+                    <div className="title-cell-ric">TMSI:</div>
+                    <div>{JSON.stringify(res[1].tmsi)}</div>
+                </div>
+            </div>}
         </div>
     )
 }
