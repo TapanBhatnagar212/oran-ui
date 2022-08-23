@@ -74,7 +74,7 @@ const SliceData = (data) => {
                 {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">Allocation Proportion share:</div>
-                    <div>{JSON.stringify(res[0].allocation_policy.share)}</div>
+                    <div className="bigFont">{res[0].allocation_policy.share}</div>
                 </div>
                 <div className="cell-container">
                     <div className="title-cell-ric">Ues:</div>
@@ -88,8 +88,9 @@ const SliceData = (data) => {
                 {/*    <div>{res[1].name}</div>*/}
                 {/*</div>*/}
                 <div className="cell-container">
-                    <div className="title-cell-ric">Allocation Proportion share:</div>
-                    <div>{res[1].allocation_policy.share}</div>
+                    <div className="title-cell-ric">Allocation Share </div>
+                    <br></br>
+                    <div className="bigFont">{res[1].allocation_policy.share}</div>
                 </div>
                 <div className="cell-container">
                     <div className="title-cell-ric">Ues:</div>
