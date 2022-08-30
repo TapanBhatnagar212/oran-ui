@@ -73,11 +73,11 @@ const SliceData = (data) => {
                 {/*    <div>{res[0].name}</div>*/}
                 {/*</div>*/}
                 <div className="cell-container">
-                    <div className="title-cell-ric">Allocation Proportion share:</div>
+                    <div className="title-cell-ric">Allocation Share</div>
                     <div className="bigFont">{res[0].allocation_policy.share}</div>
                 </div>
                 <div className="cell-container">
-                    <div className="title-cell-ric">Ues:</div>
+                    <div className="title-cell-ric">UEs:</div>
                     <div>{JSON.stringify(res[0].ues)}</div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ const SliceData = (data) => {
                     <div className="bigFont">{res[1].allocation_policy.share}</div>
                 </div>
                 <div className="cell-container">
-                    <div className="title-cell-ric">Ues:</div>
+                    <div className="title-cell-ric">UEs:</div>
                     <div>{JSON.stringify(res[1].ues)}</div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ const UeData = (data) => {
     return (
         <div className="flex blackText">
             {res[0] && <div className="card-container-ric">
-                <h3 className="rd-global-page-title">UE 1 - First Responder</h3>
+                <h3 className="rd-global-page-title-ue">UE 1 - First Responder</h3>
                 {/*<div className="cell-container">*/}
                 {/*    <div className="title-cell-ric">Crnti:</div>*/}
                 {/*    <div>{res[0].crnti}</div>*/}

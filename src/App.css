@@ -118,6 +118,13 @@
   text-align: left;
 }
 
+.rd-global-page-title-ue {
+  color: #432c85;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+}
+
 .cell-container {
   display: flex;
   padding: 15px 0 5px 0;
