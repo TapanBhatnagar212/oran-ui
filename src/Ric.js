@@ -19,27 +19,11 @@ function Ric() {
         <div className="catalog__section">
             {data2 && <Enodeb data={data2}/>}
             {slice_data && <SliceData data={slice_data}/>}
-            {ue_data && <UeData data={ue_data}/>}
+            {ue_data && <UeData data={slice_data}/>}
         </div>
     );
 }
 
-// const Table = (data) => {
-//     const details = data.data[0]
-//     return (
-//         <div>
-//             <div className="cell-container margin100">
-//                 <div className="title-cell-ric">InventoryName: </div>
-//                 <div>{details.inventoryName}</div>
-//             </div>
-//             <div className="cell-container margin100">
-//                 <div className="title-cell-ric">ConnectionStatus: </div>
-//                 <div>{details.connectionStatus}</div>
-//             </div>
-//         </div>
-//
-//     )
-// }
 
 const Enodeb = (data) => {
     const res = data.data.nodebs[0]
@@ -68,10 +52,6 @@ const SliceData = (data) => {
         <div className="flex blackText">
             <div className="card-container-ric">
                 <h3 className="rd-global-page-title">{res[0].name}</h3>
-                {/*<div className="cell-container">*/}
-                {/*    <div className="title-cell-ric">Name:</div>*/}
-                {/*    <div>{res[0].name}</div>*/}
-                {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">Allocation Share</div>
                     <div className="bigFont">{res[0].allocation_policy.share}</div>
@@ -102,39 +82,22 @@ const SliceData = (data) => {
 }
 
 const UeData = (data) => {
-    const res = data.data.ues
-    console.log(res)
+    const res = data.data.slices
     return (
         <div className="flex blackText">
             {res[0] && <div className="card-container-ric">
                 <h3 className="rd-global-page-title-ue">UE 1 - First Responder</h3>
-                {/*<div className="cell-container">*/}
-                {/*    <div className="title-cell-ric">Crnti:</div>*/}
-                {/*    <div>{res[0].crnti}</div>*/}
-                {/*</div>*/}
                 <div className="cell-container">
                     <div className="title-cell-ric">IMSI:</div>
-                    <div>{res[0].imsi}</div>
+                    <div>{JSON.stringify(res[0].ues)}</div>
                 </div>
-                {/*<div className="cell-container">*/}
-                {/*    <div className="title-cell-ric">TMSI:</div>*/}
-                {/*    <div>{res[0].tmsi}</div>*/}
-                {/*</div>*/}
             </div>}
             {res[1] && <div className="card-container-ric">
-                <h3 className="rd-global-page-title">UE 2</h3>
-                {/*<div className="cell-container">*/}
-                {/*    <div className="title-cell-ric">Crnti:</div>*/}
-                {/*    <div>{res[1].crnti}</div>*/}
-                {/*</div>*/}
+                <h3 className="rd-global-page-title-ue">UE 2 - Public User</h3>
                 <div className="cell-container">
                     <div className="title-cell-ric">IMSI:</div>
-                    <div>{res[1].imsi}</div>
+                    <div>{JSON.stringify(res[1].ues)}</div>
                 </div>
-                {/*<div className="cell-container">*/}
-                {/*    <div className="title-cell-ric">TMSI:</div>*/}
-                {/*    <div>{res[1].tmsi}</div>*/}
-                {/*</div>*/}
             </div>}
         </div>
     )
