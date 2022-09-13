@@ -33,7 +33,7 @@ const DeployedXappDetails = (data) => {
     console.log(xappDetails)
     return (
         <div className="xapp-dtl-ctnr">
-            <div className="bold">Deployed xApp</div>
+            <h3 className="rd-global-page-title">Deployed xApp</h3>
             <div className="cell-container">
                 <div className="title-cell">name: </div>
                 <div>{xappDetails.name}</div>
@@ -59,7 +59,7 @@ const OnboardedDetails = (data) => {
     const xappDetails = data.data.nexran[0]
     return (
         <div className="xapp-dtl-ctnr">
-            <div className="bold">Onboarded xApp</div>
+            <h3 className="rd-global-page-title">Onboarded xApp</h3>
             <div className="cell-container">
                 <div className="title-cell">name: </div>
                 <div>{xappDetails.name}</div>
