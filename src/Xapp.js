@@ -3,7 +3,7 @@ import Get from "./axiosClient/axiosGet";
 import fetchUrl, {KONG_PROXY} from "./axiosClient/axiosUrl";
 
 
-function Xapp() {
+const Xapp = () => {
     const data = Get(
         fetchUrl("/onboard/api/v1/charts", KONG_PROXY),
     );
@@ -12,7 +12,10 @@ function Xapp() {
         fetchUrl("/appmgr/ric/v1/xapps", KONG_PROXY),
     );
 
+    console.log(data2)
+
     return (
+
         <div className="catalog__section">
             <h3 className="rd-global-page-title">xApp Catalog</h3>
             <div className="flex">
@@ -30,7 +33,6 @@ function Xapp() {
 
 const DeployedXappDetails = (data) => {
     const xappDetails = data.data[0]
-    console.log(xappDetails)
     return (
         <div className="xapp-dtl-ctnr">
             <h3 className="rd-global-page-title">Deployed xApp</h3>
@@ -52,7 +54,6 @@ const DeployedXappDetails = (data) => {
             </div>
         </div>
     )
-
 }
 
 const OnboardedDetails = (data) => {

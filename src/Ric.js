@@ -1,48 +1,54 @@
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Get from "./axiosClient/axiosGet";
 import fetchUrl, {NEXRAN_BASE_URL} from "./axiosClient/axiosUrl";
+import axios from "axios";
 
-function Ric() {
-    // const data = Get(
-    //     fetchUrl("/e2mgr/v1/nodeb/states", KONG_PROXY),
-    // );
-    const data2 = Get(
-        fetchUrl("/v1/nodebs", NEXRAN_BASE_URL),
-    );
-    const slice_data = Get(
-        fetchUrl("/v1/slices", NEXRAN_BASE_URL),
-    );
-    // const ue_data = Get(
-    //     fetchUrl("/v1/ues", NEXRAN_BASE_URL),
-    // );
-    // if (slice_data) {
-    //     console.log("got response ")
-    //     console.log(slice_data)
-    // }
-    // if (ue_data) {
-    //     console.log(ue_data)
-    // }
+const Ric = () => {
+    const [nodeData, setNodeData] = useState(null);
+    const [sliceData, setSliceData] = useState(null);
 
+    const getNodeData = () => {
+        axios.get(fetchUrl("/v1/nodebs", NEXRAN_BASE_URL))
+            .then(
+                response => {
+                    setNodeData(response.data)
+                }
+            ).catch( ex => console.log(ex))
+    }
+
+    const getSliceData = () => {
+        axios.get(fetchUrl("/v1/slices", NEXRAN_BASE_URL))
+            .then(
+                response => {
+                    setSliceData(response.data)
+                }).catch( ex => console.log(ex))
+    }
+
+    useEffect(() => {
+        console.log("test")
+        getNodeData()
+        const interval = setInterval(getSliceData, 2000);
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
 
     return (
         <div className="catalog__section">
-            {data2 && <Enodeb data={data2}/>}
-            {slice_data && <SliceData data={slice_data}/>}
-            {slice_data && <UeData data={slice_data}/>}
+            {nodeData && <Node data={nodeData}/>}
+            {sliceData && <Slice data={sliceData}/>}
+            {sliceData && <Ue data={sliceData}/>}
         </div>
     );
 }
 
 
-const Enodeb = (data) => {
+const Node = (data) => {
     const res = data.data.nodebs[0]
     return (
         <div className="card-container-ric">
             <h3 className="rd-global-page-title">Base Station</h3>
-            {/*<div className="cell-container ">*/}
-            {/*    <div className="title-cell-ric">Name</div>*/}
-            {/*    <div>{res.name}</div>*/}
-            {/*</div>*/}
             <div className="cell-container ">
                 <div className="title-cell-ric">Type</div>
                 <div>{res.type}</div>
@@ -55,7 +61,7 @@ const Enodeb = (data) => {
     )
 }
 
-const SliceData = (data) => {
+const Slice = (data) => {
     const res = data.data.slices
     return (
         <div className="flex">
@@ -79,7 +85,7 @@ const SliceData = (data) => {
 }
 
 
-const UeData = (data) => {
+const Ue = (data) => {
     const res = data.data.slices
     return (
         <div className="flex">
